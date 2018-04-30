@@ -6,7 +6,7 @@ import csv
 
 csvFile = 'architectural_metadata_dcformat.csv'
 xmlFile = 'csv_to_dublincore_4.xml'
-subj = 'dc:subject' #looks for specific attribute to remove from closing tag; can add multiple variable here and add below
+subj = 'dc:subject' #looks for specific attribute to remove from closing tag; can add multiple variable here and add below. Clunky.
 crea = 'dc:creator' #as above, different attribute
 
 #open the csv and xml files
@@ -25,15 +25,15 @@ for row in csvData:
         xmlData.write('<row>' + "\n")
         for i in range(len(tags)): #loops through cells per row
             if row[i]: # if the cell contains text go ahead
-                if "aat" in tags[i]: # if tag contains the GAAT attribute to prevent it populating the closing XML tag with attributes. very clunky.
+                if "aat" in tags[i]: # if tag contains the GAAT attribute removr from closing tag..
                     xmlData.write('    ' + '<' + tags[i] + '>' \
                     + row[i] + '</' + subj + '>' + "\n") # just close it without attribute
-                elif "LCSH" in tags[i]: # if tag contains the LCSH attribute to prevent it populating the closing XML tag with attributes. very clunky.
+                elif "LCSH" in tags[i]: # as above with LCSH attribute.
                     xmlData.write('    ' + '<' + tags[i] + '>' \
                     + row[i] + '</' + crea + '>' + "\n") # just close it without attribute
                 else:
-                    xmlData.write('    ' + '<' + tags[i] + '>' \
-                    + row[i] + '</' + tags[i] + '>' + "\n") # or just repeat it in the closing tag if no attributes
+                    xmlData.write('    ' + '<' + tags[i] + '>' \ 
+                    + row[i] + '</' + tags[i] + '>' + "\n") #  just repeat element it in the closing tag if no attributes
             else:
                 #go to next tag on empty cell
                 i +=1
