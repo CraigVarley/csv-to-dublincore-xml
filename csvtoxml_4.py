@@ -25,7 +25,7 @@ for row in csvData:
         xmlData.write('<row>' + "\n")
         for i in range(len(tags)): #loops through cells per row
             if row[i]: # if the cell contains text go ahead
-                if "aat" in tags[i]: # if tag contains the GAAT attribute removr from closing tag..
+                if "aat" in tags[i]: # if tag contains the GAAT attribute remove from closing tag..
                     xmlData.write('    ' + '<' + tags[i] + '>' \
                     + row[i] + '</' + subj + '>' + "\n") # just close it without attribute
                 elif "LCSH" in tags[i]: # as above with LCSH attribute.
