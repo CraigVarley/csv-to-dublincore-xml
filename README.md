@@ -7,4 +7,4 @@ Clunky thing: the attribute test looks for specific attribute text in the csv he
 
 All records are required to be in the same csv but one could adapt easily to iterate through several different files. I quickly cleaned the metadata in a spreadsheet first before conversion.
 
-Adapted from: http://code.activestate.com/recipes/577423-convert-csv-to-xml/ so thanks to that person for the useful script.
+Adapted from: http://code.activestate.com/recipes/577423-convert-csv-to-xml/
